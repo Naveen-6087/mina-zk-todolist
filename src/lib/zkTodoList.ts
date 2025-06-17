@@ -1,5 +1,3 @@
-// zkTodoList.ts
-
 import { Bool, CircuitString, Experimental, Field, Poseidon, SelfProof, Struct, ZkProgram } from "o1js";
 
 export { IndexedMerkleMap8, Todo, ZkTodoList, ZkTodoListProof };

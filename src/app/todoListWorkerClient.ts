@@ -1,5 +1,3 @@
-// todoListWorkerClient.ts
-
 import * as Comlink from "comlink";
 
 export default class TodoListWorkerClient {
