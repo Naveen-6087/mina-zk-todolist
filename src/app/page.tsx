@@ -1,5 +1,3 @@
-// page.tsx
-
 "use client";
 import { useEffect, useRef, useState } from "react";
 
@@ -101,67 +99,67 @@ export default function Home() {
 
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-8 font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-blue-50 to-white">
-      <main className="flex flex-col gap-x-12 gap-y-40 row-start-2 items-center w-3/4">
-        <div className="flex flex-col gap-4 items-center justify-center text-center">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 sm:p-8 pb-20 gap-8 sm:gap-16 font-[family-name:var(--font-geist-sans)] bg-gradient-to-b from-gray-900 to-gray-800">
+      <main className="flex flex-col gap-x-12 gap-y-20 sm:gap-y-40 row-start-2 items-center w-full sm:w-3/4">
+        <div className="flex flex-col gap-4 items-center justify-center text-center px-4">
+          <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
             Todo List with o1js and Next JS!
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-300 text-sm sm:text-base">
             This is a demo site built with o1js and Next JS. Follow along with
             step by step instructions for how to build this site{" "}
-            <a href="https://docs.minaprotocol.com/zkapps/front-end-integration-guides/next" className="text-blue-600 hover:text-blue-800 underline">here</a>!
+            <a href="https://docs.minaprotocol.com/zkapps/front-end-integration-guides/next" className="text-blue-400 hover:text-blue-300 underline">here</a>!
           </p>
         </div>
-        <div className="w-full">
-          <h2 className="text-xl font-bold mb-2 text-gray-800">Console Log</h2>
-          <div ref={logContainerRef} className="w-full max-h-40 overflow-y-auto bg-gray-100 p-4 rounded-lg shadow-inner">
-            <ul className="list-disc list-inside text-gray-700">
+        <div className="w-full px-4 sm:px-0">
+          <h2 className="text-xl font-bold mb-2 text-gray-200">Console Log</h2>
+          <div ref={logContainerRef} className="w-full max-h-40 overflow-y-auto bg-gray-800 p-4 rounded-lg shadow-inner border border-gray-700">
+            <ul className="list-disc list-inside text-gray-300 text-sm">
               {logMessages.map((message, index) => (
                 <li key={index}>{message}</li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full px-4 sm:px-0">
           <div className="flex flex-col gap-6">
-            <div className="py-8 bg-white p-6 rounded-xl shadow-lg">
+            <div className="py-6 sm:py-8 bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-700">
               <PendingTodosQueue
                 title="Pending Todos Queue"
                 subheading="These todo items are only represented in Javascript. Click 'Pending Todos Queue' to prove their inclusion"
                 todos={newTodosQueue}
               />
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex flex-col sm:flex-row gap-2">
                 <input
                   type="text"
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+                  className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200 placeholder-gray-400"
                   value={newTodo}
                   onChange={(e) => setNewTodo(e.target.value)}
                   placeholder="Enter new todo..."
                 />
                 <button 
                   onClick={addTodo} 
-                  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 shadow-md"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md"
                 >
                   Add Todo
                 </button>
               </div>
               <button
-                className="mt-4 w-full px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-4 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={resolveTodosQueue}
                 disabled={workerIsBusy || !hasBeenInitialized}
               >
                 Prove Pending Todos Queue
               </button>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg">
+            <div className="bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-700">
               <PendingTodosQueue
                 title="Pending Complete Todos Queue"
                 subheading="These todo items marked for completion in javascript, but not yet proven. Click 'Pending Complete Todos Queue' to prove their completion"
                 todos={pendingCompleteTodosQueue.map((index) => todoList![index].text)}
               />
               <button
-                className="mt-4 w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-4 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={resolveCompleteTodosQueue}
                 disabled={workerIsBusy || !hasBeenInitialized}
               >
@@ -169,7 +167,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-lg">
+          <div className="bg-gray-800 p-4 sm:p-6 rounded-xl shadow-lg border border-gray-700">
             {hasBeenInitialized ? (
               todoList !== null && (
                 <ul className="flex flex-col gap-2">
@@ -182,7 +180,7 @@ export default function Home() {
                 </ul>
               )
             ) : (
-              <div className="text-center py-8 text-gray-600">Waiting for zk circuit to compile...</div>
+              <div className="text-center py-8 text-gray-400">Waiting for zk circuit to compile...</div>
             )}
           </div>
         </div>

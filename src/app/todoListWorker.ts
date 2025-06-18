@@ -1,5 +1,3 @@
-// todoListWorker.ts
-
 import { Bool, CircuitString, Field } from "o1js";
 import * as Comlink from "comlink";
 import {

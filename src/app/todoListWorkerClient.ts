@@ -1,7 +1,4 @@
-// todoListWorkerClient.ts
-
 import * as Comlink from "comlink";
-
 export default class TodoListWorkerClient {
   worker!: Worker;
   remoteApi: Comlink.Remote<typeof import("./todoListWorker").api>;
